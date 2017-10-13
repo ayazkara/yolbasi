@@ -1,2 +1,0 @@
-# yolbasi
-Yolbaşı Kırtasiye
