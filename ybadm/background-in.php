@@ -29,7 +29,11 @@ if (!empty($_FILES)) {
 }
 else if($islem=="Del"){
 	$ID=$_GET["ID"];
+	$del=mysql_query("Select * from background where ID='$ID'");
+	$del_row=mysql_fetch_array($del);
 	mysql_query("Delete From background where ID='".$ID."'");
+	$img="../images/slider/rev/main/".$del_row["images"];
+	unlink($img);
 	header("Location:background.php");
 }
 

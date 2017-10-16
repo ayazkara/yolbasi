@@ -36,10 +36,9 @@
                                     <div class="form-group mt-lg">
                                       <label class="col-sm-3 control-label">Kategori</label>
                                       <div class="col-sm-9">
-                                        <input type="text" name="category" class="form-control" placeholder="Kategori Yazınız...." required />
+                                        <input type="text" name="category" class="form-control" placeholder="Kategori Yazınız...." required >
                                       </div>
                                     </div>
-                                  </form>
                                 </div>
                                 <footer class="panel-footer">
                                   <div class="row">
@@ -49,6 +48,7 @@
                                     </div>
                                   </div>
                                 </footer>
+                                </form>
                               </section>
                             </div>
                             <!-- cat Form -->

@@ -14,6 +14,7 @@
 			<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 			<script src="assets/javascripts/pages/examples.mediagallery.js" /></script>
 			<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+			<script src="assets/javascripts/ui-elements/examples.lightbox.js"></script>
 		<!-- Specific Page Vendor -->
 		<script src="assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
 		<script src="assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>

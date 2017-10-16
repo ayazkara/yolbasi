@@ -55,32 +55,23 @@
         <div id="shop" class="shop product-3 clearfix">
         <div id="portfolio" class="portfolio clearfix">
 
+          <?php
+            include("ybadm/db.php");
+            $pr=mysql_query("Select * from products where category='$category'");
+            while ($pr_row=mysql_fetch_array($pr)){
+          ?>
               <div class="product clearfix">
 								<div class="product-image">
-									<a href="category-detail.php"><img src="images/shop/kitap.jpg" alt=""></a>
+									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php echo $pr_row["images"];?>" alt=""></a>
 									<div class="product-overlay">
-										<a href="category-detail.php" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> İncele</span></a>
+										<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> İncele</span></a>
 									</div>
 								</div>
 								<div class="product-desc center">
-									<div class="product-title"><h3><a href="#">Kitap</a></h3></div>
+									<div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><?php echo $pr_row["title"]; ?></a></h3></div>
 								</div>
 							</div>
-
-              <div class="product clearfix">
-								<div class="product-image">
-									<a href="category-detail.php"><img src="images/shop/kamera.jpg" alt=""></a>
-									<div class="product-overlay">
-										<a href="category-detail.php" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> İncele</span></a>
-									</div>
-								</div>
-								<div class="product-desc center">
-									<div class="product-title"><h3><a href="#">Kitap</a></h3></div>
-								</div>
-							</div>
-
-
-
+          <?php } ?>
             </div>
         </div><!-- #portfolio end -->
       </div>

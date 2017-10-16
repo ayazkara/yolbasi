@@ -57,7 +57,7 @@
                                           <input type="hidden" name="ID" class="form-control" value="<?php echo $bac_row["ID"];?>">
                                         </div>
                                       </div>
-                                    </form>
+
                                   </div>
                                   <footer class="panel-footer">
                                     <div class="row">
@@ -67,6 +67,7 @@
                                       </div>
                                     </div>
                                   </footer>
+                                  </form>
                                 </section>
                               </div>
                         </td>
