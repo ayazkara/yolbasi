@@ -150,7 +150,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="about.php">
+										<a href="background.php">
 											<i class="fa fa-envelope" aria-hidden="true"></i>
 											<span>Arka Plan</span>
 										</a>
