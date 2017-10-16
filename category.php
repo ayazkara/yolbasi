@@ -36,13 +36,13 @@
 
                 <h4>Kategori</h4>
                 <ul>
-                  <li><a href="category.php?category=Kırtasiye">Kırtasiye</a></li>
-                  <li><a href="category.php?category=Bilgisayar">Bilgisayar</a></li>
-                  <li><a href="category.php?category=Güvenlik">Güvenlik</a></li>
-                  <li><a href="category.php?category=Copy Center">Copy Center</a></li>
-                  <li><a href="category.php?category=Lazer Kesim">Lazer Kesim</a></li>
-                  <li><a href="category.php?category=Uv Kesim">Uv Kesim</a></li>
-                  <li><a href="category.php?category=Makina Parkuru">Makina Parkuru</a></li>
+                  <?php
+                    include("ybadm/db.php");
+                    $cat=mysql_query("Select * from category");
+                    while ($cat_row=mysql_fetch_array($cat)){
+                  ?>
+                  <li><a href="category.php?category=<?php echo $cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
+                <?php }?>
                 </ul>
 
               </div>

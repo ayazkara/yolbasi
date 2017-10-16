@@ -73,7 +73,7 @@
 
 		<!-- Header
 		============================================= -->
-		<header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+		<header id="header" class="transparent-header full-header" >
 
 			<div id="header-wrap">
 
@@ -85,23 +85,23 @@
 					============================================= -->
 					<div id="logo">
 						<a href="index.php" class="standard-logo" ><img src="images/logo.png" ></a>
-					</div><!-- #logo end -->
 
+					</div><!-- #logo end -->
 					<!-- Primary Navigation
 					============================================= -->
 					<nav id="primary-menu">
 
 						<ul>
 							<li class="current"><a href="index.php"><div>Anasayfa</div></a></li>
-							<li><a href="#"><div>Kategoriler</div></a>
+							<li><a href="#"><div>Ürünler</div></a>
 								<ul>
-									<li><a href="category.php?category=Kırtasiye"><div>Kırtasiye</div></a></li>
-                  <li><a href="category.php?category=Bilgisayar"><div>Bilgisayar</div></a></li>
-                  <li><a href="category.php?category=Güvenlik"><div>Güvenlik</div></a></li>
-                  <li><a href="category.php?category=Copy Center"><div>Copy Center</div></a></li>
-                  <li><a href="category.php?category=Lazer Kesim"><div>Lazer Kesim</div></a></li>
-                  <li><a href="category.php?category=Uv Kesim"><div>Uv Kesim</div></a></li>
-                  <li><a href="category.php?category=Makina Parkuru"><div>Makina Parkuru</div></a></li>
+									<?php
+										include("ybadm/db.php");
+										$cat=mysql_query("Select * from category");
+										while ($cat_row=mysql_fetch_array($cat)){
+									?>
+									<li><a href="category.php?category=<?php echo $cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
+								<?php } ?>
                 </ul>
               </li>
               <li ><a href="about.php"><div>Hakkımızda</div></a></li>

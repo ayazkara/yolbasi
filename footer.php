@@ -13,10 +13,14 @@
         <div class="fright clearfix">
 
         </div>
-
+        <?php
+          include("ybadm/db.php");
+          $con=mysql_query("Select * from contact");
+          $con_row=mysql_fetch_array($con);
+        ?>
         <div class="clear"></div>
 
-        <i class="icon-envelope2"></i> info@yolbasikirtasiye.com.tr <span class="middot">&middot;</span> <i class="icon-headphones"></i> 0384 213 71 21
+        <?php echo $con_row["mail"];?> <span class="middot">&middot;</span>  <?php echo $con_row["phone"];?>
       </div>
 
     </div>

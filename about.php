@@ -1,5 +1,8 @@
 <?php
  include("header.php");
+ include("ybadm/db.php");
+ $ab=mysql_query("Select * from about");
+ $ab_row=mysql_fetch_array($ab);
 ?>
 <!-- Page Title
   ============================================= -->
@@ -23,7 +26,7 @@
 
 							<h3>Hakkımızda</h3>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa repellendus adipisci laborum placeat delectus labore cupiditate deserunt minus numquam consequatur esse, hic at earum illo animi eaque et, dolorem quo qui eos? Quam rerum possimus maxime veniam aut ratione eveniet aliquid cumque aspernatur ipsum libero quaerat, nam. Ad, sunt, error!</p>
+							<p><?php echo $ab_row["about"]; ?></p>
 
 						</div>
 
