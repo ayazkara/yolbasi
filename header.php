@@ -85,7 +85,7 @@
 					============================================= -->
 					<div id="logo">
 						<a href="index.php" class="standard-logo" ><img src="images/logo.png" ></a>
-
+						<a href="index.php" class="retina-logo" ><img src="images/logo@2x.png" ></a>
 					</div><!-- #logo end -->
 					<!-- Primary Navigation
 					============================================= -->

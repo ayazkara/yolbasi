@@ -62,7 +62,7 @@
           ?>
               <div class="product clearfix">
 								<div class="product-image">
-									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php echo $pr_row["images"];?>" alt=""></a>
+									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php echo $pr_row["images"];?>" style="width=250px; height:250px;"></a>
 									<div class="product-overlay">
 										<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> İncele</span></a>
 									</div>

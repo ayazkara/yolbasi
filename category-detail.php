@@ -1,12 +1,16 @@
 <?php
   include("header.php");
+  $ID=$_GET["ID"];
+  include("db.php");
+  $pr=mysql_query("Select * from products where ID='$ID'");
+  $pr_row=mysql_fetch_array($pr);
 ?>
 <!-- Page Title
   ============================================= -->
   <section id="page-title">
 
     <div class="container clearfix">
-      <h1>Kitap</h1>
+      <h1><?php echo $pr_row["title"];?></h1>
     </div>
 
   </section><!-- #page-title end -->
@@ -24,15 +28,15 @@
 
                     <div class="widget widget_links clearfix">
 
-                      <h4>Kategory</h4>
+                      <h4>Kategori</h4>
                       <ul>
-                        <li><a href="category.php?category=Kırtasiye">Kırtasiye</a></li>
-                        <li><a href="category.php?category=Bilgisayar">Bilgisayar</a></li>
-                        <li><a href="category.php?category=Güvenlik">Güvenlik</a></li>
-                        <li><a href="category.php?category=Copy Center">Copy Center</a></li>
-                        <li><a href="category.php?category=Lazer Kesim">Lazer Kesim</a></li>
-                        <li><a href="category.php?category=Uv Kesim">Uv Kesim</a></li>
-                        <li><a href="category.php?category=Makina Parkuru">Makina Parkuru</a></li>
+                        <?php
+                          include("ybadm/db.php");
+                          $cat=mysql_query("Select * from category");
+                          while ($cat_row=mysql_fetch_array($cat)){
+                        ?>
+                        <li><a href="category.php?category=<?php echo $cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
+                      <?php }?>
                       </ul>
 
                     </div>
@@ -55,9 +59,9 @@
                   <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
                     <div class="flexslider">
                       <div class="slider-wrap" data-lightbox="gallery">
-                        <div class="slide" data-thumb="images/shop/thumbs/dress/3.jpg"><a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img src="images/shop/dress/3.jpg" alt="Pink Printed Dress"></a></div>
-                        <div class="slide" data-thumb="images/shop/thumbs/dress/3-1.jpg"><a href="images/shop/dress/3-1.jpg" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="images/shop/dress/3-1.jpg" alt="Pink Printed Dress"></a></div>
-                        <div class="slide" data-thumb="images/shop/thumbs/dress/3-2.jpg"><a href="images/shop/dress/3-2.jpg" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="images/shop/dress/3-2.jpg" alt="Pink Printed Dress"></a></div>
+                        <div class="slide" data-thumb="images/shop/<?php echo $pr_row["images"];?>"><a href="images/shop/<?php echo $pr_row["images"];?>"  data-lightbox="gallery-item"><img src="images/shop/<?php echo $pr_row["images"];?>" ></a></div>
+                        <div class="slide" data-thumb="images/shop/<?php echo $pr_row["images"];?>"><a href="images/shop/<?php echo $pr_row["images"];?>"  data-lightbox="gallery-item"><img src="images/shop/<?php echo $pr_row["images"];?>" ></a></div>
+                        <div class="slide" data-thumb="images/shop/<?php echo $pr_row["images"];?>"><a href="images/shop/<?php echo $pr_row["images"];?>"  data-lightbox="gallery-item"><img src="images/shop/<?php echo $pr_row["images"];?>" ></a></div>
                       </div>
                     </div>
                   </div>
@@ -75,8 +79,7 @@
 
                 <!-- Product Single - Short Description
                 ============================================= -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero velit id eaque ex quae laboriosam nulla optio doloribus! Perspiciatis, libero, neque, perferendis at nisi optio dolor!</p>
-                <p>Perspiciatis ad eveniet ea quasi debitis quos laborum eum reprehenderit eaque explicabo assumenda rem modi.</p>
+                <?php echo $pr_row["content"];?>
 
 
               </div>
@@ -90,131 +93,29 @@
 
           <div class="col_full nobottommargin">
 
-            <h4>Related Products</h4>
+            <h4>Diğer Ürünler</h4>
 
             <div id="oc-product" class="owl-carousel product-carousel carousel-widget" data-margin="30" data-pagi="false" data-autoplay="5000" data-items-xxs="1" data-items-sm="2" data-items-lg="4">
-
+              <?php
+                $category=$pr_row["category"];
+                $rs=mysql_query("Select * from products where ID!='$ID' and  category='$category' order by rand() Limit 6");
+                while ($rs_row=mysql_fetch_array($rs)){
+              ?>
               <div class="oc-item">
                 <div class="product iproduct clearfix">
                   <div class="product-image">
-                    <a href="#"><img src="images/shop/dress/1.jpg" alt="Checked Short Dress"></a>
-                    <a href="#"><img src="images/shop/dress/1-1.jpg" alt="Checked Short Dress"></a>
-                    <div class="sale-flash">50% Off*</div>
+                    <a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><img src="images/shop/<?php echo $rs_row["images"];?>" style="width=175px; height:175px;"></a>
                     <div class="product-overlay">
-                      <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                      <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
+                      <a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> İncele</span></a>
                     </div>
                   </div>
                   <div class="product-desc center">
-                    <div class="product-title"><h3><a href="#">Checked Short Dress</a></h3></div>
-                    <div class="product-price"><del>$24.99</del> <ins>$12.49</ins></div>
-                    <div class="product-rating">
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star-half-full"></i>
-                    </div>
+                    <div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><?php echo $rs_row["title"]; ?></a></h3></div>
                   </div>
                 </div>
               </div>
+            <?php } ?>
 
-              <div class="oc-item">
-                <div class="product iproduct clearfix">
-                  <div class="product-image">
-                    <a href="#"><img src="images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
-                    <a href="#"><img src="images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
-                    <div class="product-overlay">
-                      <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                      <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                    </div>
-                  </div>
-                  <div class="product-desc center">
-                    <div class="product-title"><h3><a href="#">Slim Fit Chinos</a></h3></div>
-                    <div class="product-price">$39.99</div>
-                    <div class="product-rating">
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star-half-full"></i>
-                      <i class="icon-star-empty"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="oc-item">
-                <div class="product iproduct clearfix">
-                  <div class="product-image">
-                    <a href="#"><img src="images/shop/shoes/1-1.jpg" alt="Dark Brown Boots"></a>
-                    <a href="#"><img src="images/shop/shoes/1.jpg" alt="Dark Brown Boots"></a>
-                    <div class="product-overlay">
-                      <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                      <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                    </div>
-                  </div>
-                  <div class="product-desc center">
-                    <div class="product-title"><h3><a href="#">Dark Brown Boots</a></h3></div>
-                    <div class="product-price">$49</div>
-                    <div class="product-rating">
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star-empty"></i>
-                      <i class="icon-star-empty"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="oc-item">
-                <div class="product iproduct clearfix">
-                  <div class="product-image">
-                    <a href="#"><img src="images/shop/dress/2.jpg" alt="Light Blue Denim Dress"></a>
-                    <a href="#"><img src="images/shop/dress/2-2.jpg" alt="Light Blue Denim Dress"></a>
-                    <div class="product-overlay">
-                      <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                      <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                    </div>
-                  </div>
-                  <div class="product-desc center">
-                    <div class="product-title"><h3><a href="#">Light Blue Denim Dress</a></h3></div>
-                    <div class="product-price">$19.95</div>
-                    <div class="product-rating">
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star-empty"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="oc-item">
-                <div class="product iproduct clearfix">
-                  <div class="product-image">
-                    <a href="#"><img src="images/shop/sunglasses/1.jpg" alt="Unisex Sunglasses"></a>
-                    <a href="#"><img src="images/shop/sunglasses/1-1.jpg" alt="Unisex Sunglasses"></a>
-                    <div class="sale-flash">Sale!</div>
-                    <div class="product-overlay">
-                      <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                      <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-                    </div>
-                  </div>
-                  <div class="product-desc center">
-                    <div class="product-title"><h3><a href="#">Unisex Sunglasses</a></h3></div>
-                    <div class="product-price"><del>$19.99</del> <ins>$11.99</ins></div>
-                    <div class="product-rating">
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star3"></i>
-                      <i class="icon-star-empty"></i>
-                      <i class="icon-star-empty"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
             </div>
 
