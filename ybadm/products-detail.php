@@ -19,30 +19,28 @@
         </div>
       </div>
       <div class="col-md-8">
-        <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
-          <div class="thumbnail">
-            <div class="thumb-preview">
-              <a class="thumb-image" href="../images/shop/<?php echo $pr_row["images"];?>">
-                <img src="../images/shop/<?php echo $pr_row["images"];?>" class="img-responsive" alt="Project">
+        <?php
+          $ID=$pr_row["ID"];
+          $img=mysql_query("Select * from products_img where products_ID='$ID'");
+          while ($img_row=mysql_fetch_array($img)){
+        ?>
+        <div class="col-md-2">
+          <div class="zoom-gallery">
+              <a class="pull-left" href="../images/shop/<?php echo $img_row["images"];?>">
+                <img src="../images/shop/<?php echo $img_row["images"];?>" width="100px" height="100px">
               </a>
-              <div class="mg-thumb-options">
-                <div class="mg-zoom"><i class="fa fa-search"></i></div>
-                <div class="mg-toolbar">
-                  <div class="mg-option checkbox-custom checkbox-inline">
-                    <i class="fa fa-trash-o"></i> Delete</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
           </div>
+          <a href="products-in.php?islem=imgdel&ID=<?php echo $img_row["ID"];?>&pID=<?php echo $img_row["products_ID"];?>"><i class="fa fa-trash-o"></i>Delete</a>
+        </div>
+      <?php } ?>
       </div>
     <div class="col-md-12">
-    <form  class="form-horizontal mb-lg" action="products-in.php?islem=insert" method="post" >
+    <form  class="form-horizontal mb-lg" action="products-in.php?islem=update" method="post" >
       <div class="form-group mt-lg">
         <label class="col-sm-3 control-label">Adı</label>
         <div class="col-sm-9">
           <input type="text" name="name" class="form-control" value="<?php echo $pr_row["title"];?>" required >
+            <input type="hidden" name="ID" class="form-control" value="<?php echo $pr_row["ID"];?>" required >
         </div>
       </div>
       <div class="form-group mt-lg">
@@ -69,7 +67,7 @@
   <footer class="panel-footer">
     <div class="row">
       <div class="col-md-12 text-right">
-        <input type="submit" class="btn btn-primary" Value="Kaydet"/>
+        <input type="submit" class="btn btn-primary" Value="Güncelle"/>
       </div>
     </div>
   </footer>

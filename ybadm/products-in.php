@@ -27,11 +27,29 @@
     	$img_name=$_FILES['file']['name'];
       $ID=$_GET["ID"];
 
-
-
       move_uploaded_file($tempFile,$targetFile); //6
-        mysql_query("UPDATE products SET images='$img_name' where ID='$ID' ");
+        mysql_query("UPDATE products SET images='' where ID='$ID'");
+        mysql_query("INSERT INTO products_img (products_ID,images) VALUES ('$ID','$img_name')");
   }
 
+}
+else if($islem=="update"){
+   $name=$_POST["name"];
+   $category=$_POST["category"];
+   $content=$_POST["content"];
+   $ID=$_POST["ID"];
+   mysql_query("UPDATE products SET title='$name', category='$category', content='$content' where ID='$ID' ");
+  echo '<script>alert("Ürün Başarıyla Güncellenmiştir");window.location.href = "products.php";</script>';
+}
+elseif ($islem=="imgdel"){
+  $ID=$_GET["ID"];
+  $products_ID=$_GET["pID"];
+  mysql_query("Delete From products_img where ID='$ID'");
+  $img=mysql_query("Select * from products_img where products_ID='$products_ID'");
+  $img_row=mysql_fetch_array($img);
+  if($img_row[0]!="1"){
+    mysql_query("UPDATE products SET images='resimyok.jpg' where ID='$products_ID' ");
+  }
+  header("Location:products-detail.php?ID=$products_ID");
 }
 ?>

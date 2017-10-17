@@ -59,13 +59,13 @@
             include("ybadm/db.php");
             $pr=mysql_query("Select * from products where category='$category'");
             while ($pr_row=mysql_fetch_array($pr)){
+              $ID=$pr_row["ID"];
+              $img=mysql_query("Select * from products_img where products_ID='$ID' ");
+              $img_row=mysql_fetch_array($img);
           ?>
               <div class="product clearfix">
 								<div class="product-image">
-									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php echo $pr_row["images"];?>" style="width=250px; height:250px;"></a>
-									<div class="product-overlay">
-										<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> İncele</span></a>
-									</div>
+									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php echo $img_row["images"];?>" style="width=250px; height:250px;"></a>
 								</div>
 								<div class="product-desc center">
 									<div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><?php echo $pr_row["title"]; ?></a></h3></div>
