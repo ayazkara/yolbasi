@@ -1,3 +1,12 @@
+<?php
+		session_start();
+
+		if ($_SESSION["login"]==true){
+			include("db.php");
+			$ID=$_SESSION["ID"];
+			$user=mysql_query("Select * from user where ID='$ID'");
+			$user_row=mysql_fetch_array($user);
+?>
 <!doctype html>
 <html class="fixed">
 	<head>
@@ -8,7 +17,7 @@
 		<title>Yolbaşı Kırtasiye | Administrator</title>
 		<meta name="keywords" content="Yolbaşı Kırtasiye" />
 		<meta name="description" content="Yolbaşı Kırtasiye">
-		<meta name="author" content="okler.net">
+		<meta name="author" content="ayazkara">
 
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -63,8 +72,8 @@
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
-					<a href="index.php" class="logo">
-						<img src="../img/logooo1.png" height="35" alt="" />
+					<a href="products.php" class="logo">
+						<img src="../images/logo.png" height="35" alt="" />
 					</a>
 					<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
 						<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
@@ -81,7 +90,7 @@
 						<a href="#" data-toggle="dropdown">
 
 							<div class="profile-info" data-lock-name="" data-lock-email="">
-								<span class="name">Ayaz Kara</span>
+								<span class="name"><?php echo $user_row["name"];?></span>
 								<span class="role">administrator</span>
 							</div>
 
@@ -98,7 +107,7 @@
 									<a role="menuitem" tabindex="-1" href="profil.php"><i class="fa fa-user"></i>Profil</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#"><i class="fa fa-power-off"></i>Çıkış</a>
+									<a role="menuitem" tabindex="-1" href="logout.php"><i class="fa fa-power-off"></i>Çıkış</a>
 								</li>
 							</ul>
 						</div>
@@ -127,13 +136,13 @@
 								<ul class="nav nav-main">
 									<li>
 										<a href="category.php">
-											<i class="fa fa-home" aria-hidden="true"></i>
+											<i class="fa fa-tasks" aria-hidden="true"></i>
 											<span>Kategoriler</span>
 										</a>
 									</li>
 									<li>
 										<a href="products.php">
-											<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+											<i class="fa fa-th" aria-hidden="true"></i>
 											<span>ürünler</span>
 										</a>
 									</li>
@@ -145,13 +154,13 @@
 									</li>
 									<li>
 										<a href="about.php">
-											<i class="fa fa-envelope" aria-hidden="true"></i>
+											<i class="fa fa-header" aria-hidden="true"></i>
 											<span>Hakkımızda</span>
 										</a>
 									</li>
 									<li>
 										<a href="background.php">
-											<i class="fa fa-envelope" aria-hidden="true"></i>
+											<i class="fa fa-cloud-upload" aria-hidden="true"></i>
 											<span>Arka Plan</span>
 										</a>
 									</li>
@@ -166,3 +175,8 @@
 
 				</aside>
 				<!-- end: sidebar -->
+<?php
+	}else{
+		echo '<script>alert("Lütfen Giriş Yapınız");window.location.href = "index.php";</script>';
+	}
+?>

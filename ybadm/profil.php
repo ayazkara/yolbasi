@@ -24,14 +24,14 @@
                   <div class="form-group">
 											<label class="col-md-3 control-label" for="inputDefault">Kullanıcı Adı</label>
 												<div class="col-md-6">
-													<input type="text" name="user" class="form-control" id="inputDefault" disabled value="ayazkara">
-                          <input type="hidden" name="ID" class="form-control" id="inputDefault" disabled value="ayazkara">
+													<input type="text" name="user" class="form-control" id="inputDefault" disabled value="<?php echo $user_row["user"];?>">
+                          <input type="hidden" name="ID" class="form-control"   value="<?php echo $user_row["ID"];?>" >
 												</div>
 								  </div>
                   <div class="form-group">
                      <label class="col-md-3 control-label" for="inputDefault">Ad Soyad</label>
                        <div class="col-md-6">
-                         <input type="text" name="name" class="form-control" id="inputDefault" disabled value="Ayaz KARA">
+                         <input type="text" name="name" class="form-control" id="inputDefault" disabled value="<?php echo $user_row["name"];?>">
                        </div>
                  </div>
                   <div class="form-group">
