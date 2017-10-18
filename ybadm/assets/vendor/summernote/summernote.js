@@ -637,14 +637,14 @@
         ['style', ['style']],
         ['font', ['bold', 'italic', 'underline', 'clear']],
         ['fontname', ['fontname']],
-        // ['fontsize', ['fontsize']], // Still buggy
+        ['fontsize', ['fontsize']], // Still buggy
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['height', ['height']],
         ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview']],
-        ['help', ['help']]
+        //['insert', ['link', 'picture', 'video']],
+        //['view', ['fullscreen', 'codeview']],
+        //['help', ['help']]
       ],
 
       // style tag
@@ -3412,7 +3412,7 @@
       $editable.html(dom.html($holder) || dom.emptyPara);
 
       //031. create codable
-      $('<textarea class="note-codable"></textarea>').prependTo($editor);
+      $('<textarea class="note-codable" ></textarea>').prependTo($editor);
 
       var langInfo = $.summernote.lang[options.lang];
 

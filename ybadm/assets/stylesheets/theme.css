@@ -663,7 +663,7 @@ a:active {
 	}
 
 	html.fixed .inner-body {
-		margin-left: 10px;
+		margin-left: 300px;
 		border-top: 113px solid transparent;
 		margin-top: -110px;
 		min-height: 100vh;
@@ -5497,7 +5497,6 @@ html.header-dark .userbox .dropdown-menu a {
 	padding: 18px;
 	position: relative;
 }
-
 .panel-heading.bg-primary {
 	background: #cccccc;
 	color: white;
@@ -14894,7 +14893,7 @@ html.dark .CodeMirror pre {
 .mailbox .mailbox-email-list .col-mail .mail-date {
 	padding-left: 80px;
 	right: 0;
-	width: 150px;
+	width: 190px;
 }
 @media only screen and (max-width: 767px) {
 	.mailbox .mailbox-email-list .col-mail .mail-date {

@@ -14,7 +14,7 @@ Theme Version: 	1.3.0
 	$document = $(document);
 
 	$(function() {
-		$.idleTimer( 1000000 ); // ms
+		$.idleTimer( 10 ); // ms
 
 		$document.on( 'idle.idleTimer', function() {
 			// if you don't want the modal

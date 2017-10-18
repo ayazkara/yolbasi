@@ -11,7 +11,7 @@ Theme Version: 	1.3.0
 	var datatableInit = function() {
 
 		$('#datatable-default').dataTable();
-
+		
 	};
 
 	$(function() {
@@ -19,3 +19,4 @@ Theme Version: 	1.3.0
 	});
 
 }).apply( this, [ jQuery ]);
+

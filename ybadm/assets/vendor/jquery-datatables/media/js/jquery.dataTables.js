@@ -2668,6 +2668,7 @@
 		var str = language.sSearch;
 		str = str.match(/_INPUT_/) ?
 			str.replace('_INPUT_', input) :
+			
 			str+input;
 	
 		var filter = $('<div/>', {
@@ -9403,7 +9404,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aaSorting": [[0,'asc']],
+		"aaSorting": [[0,'desc']],
 	
 	
 		/**
@@ -10757,6 +10758,7 @@
 				 *    } );
 				 */
 				"sSortDescending": ": activate to sort column descending"
+				
 			},
 	
 			/**
@@ -10878,7 +10880,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "Veri Bulunamadı",
 	
 	
 			/**
@@ -10910,7 +10912,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Gösterilen _START_ to _END_ - _TOTAL_ Kayıt",
 	
 	
 			/**
@@ -10931,7 +10933,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Gösterilen 0 to 0 of 0 Kayıt",
 	
 	
 			/**
@@ -10953,7 +10955,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "",
 	
 	
 			/**
@@ -11071,7 +11073,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Show _MENU_ records",
 	
 	
 			/**
@@ -11209,7 +11211,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "Sonuç Bulunamadı"
 		},
 	
 	
