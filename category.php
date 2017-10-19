@@ -65,7 +65,7 @@
           ?>
               <div class="product clearfix">
 								<div class="product-image">
-									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php echo $img_row["images"];?>" style="width=250px; height:250px;"></a>
+									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php if ($img_row[0]>0){ echo $img_row["images"];}else{ echo $pr_row["images"];}?>" style="width=250px; height:250px;"></a>
 								</div>
 								<div class="product-desc center">
 									<div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><?php echo $pr_row["title"]; ?></a></h3></div>

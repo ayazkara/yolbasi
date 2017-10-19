@@ -61,8 +61,16 @@
                   <div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
                     <div class="flexslider">
                       <div class="slider-wrap" data-lightbox="gallery">
-                        <?php while ($img_row=mysql_fetch_array($img)){?>
+                        <?php
+                         if($pr_row["images"]!="resimyok.jpg"){
+                          while ($img_row=mysql_fetch_array($img)){
+                        ?>
                         <div class="slide" data-thumb="images/shop/<?php echo $img_row["images"];?>"><a href="images/shop/<?php echo $img_row["images"];?>"  data-lightbox="gallery-item"><img src="images/shop/<?php echo $img_row["images"];?>" ></a></div>
+                      <?php }
+                      }else{
+                      ?>
+                      <div class="slide" data-thumb="images/shop/<?php echo $pr_row["images"];?>"><a href="images/shop/<?php echo $pr_row["images"];?>"  data-lightbox="gallery-item"><img src="images/shop/<?php echo $pr_row["images"];?>" ></a></div>
+
                       <?php } ?>
                       </div>
                     </div>
@@ -109,7 +117,7 @@
               <div class="oc-item">
                 <div class="product iproduct clearfix">
                   <div class="product-image">
-                    <a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><img src="images/shop/<?php echo $img_row1["images"];?>" style="width=175px; height:175px;"></a>
+                    <a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><img src="images/shop/<?php if ($img_row1[0]>0){ echo $img_row1["images"];}else{ echo $rs_row["images"];}?>" style="width=175px; height:175px;"></a>
                   </div>
                   <div class="product-desc center">
                     <div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><?php echo $rs_row["title"]; ?></a></h3></div>
