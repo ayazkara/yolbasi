@@ -19,6 +19,8 @@
 <head>
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Kırtasiye Malzemeleri,Güvenlik Sistemleri,Fotokopi Sistemleri,Lazer Kesim">
+  <meta name="keywords" content="yolbaşı,kırtasiye,lazer kesim,uv kesim,bilgisayar,copy center,güvenlik,makina parkuru,kitap,dergi,alıştırma,test,fotokopi,baskı,kalem,aöf,kartvizit,renkli baskı">
 	<meta name="author" content="ayazkara" />
 
 	<!-- Stylesheets

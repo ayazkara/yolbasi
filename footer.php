@@ -5,7 +5,7 @@
     <div class="container clearfix">
 
       <div class="col_half">
-        Copyrights &copy; 2017 All Rights Reserved by AYAZKARA<br>
+        Copyrights &copy; 2017 All Rights Reserved by Desing Murat Arıkboğa<br>
 
       </div>
 
