@@ -77,7 +77,8 @@
 							<div class="row">
 								<div class="col-sm-8"></div>
 								<div class="col-sm-4 text-right">
-									<input type="submit" class="btn btn-primary hidden-xs" value="Giriş">
+									<button type="submit" class="btn btn-primary hidden-xs">Giriş</button>
+									<button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Giriş</button>
 								</div>
 							</div>
 

@@ -52,7 +52,7 @@
               $cat=mysql_query("Select * from category");
               while ($cat_row=mysql_fetch_array($cat)){
             ?>
-							<option value="<?php echo $cat_row["category"];?>" <?php if($cat_row["category"]==$pr_row["category"]){ echo "selected";} ?>> <?php echo $cat_row["category"];?></option>
+							<option value="<?php echo $cat_row["ID"];?>" <?php if($cat_row["ID"]==$pr_row["category"]){ echo "selected";} ?>> <?php echo $cat_row["category"];?></option>
 						<?php } ?>
 					</select>
         </div>

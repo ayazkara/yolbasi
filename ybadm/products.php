@@ -43,7 +43,14 @@
                         </div>
                       </td>
                       <td><?php echo $pr_row["title"];?></td>
-                      <td><?php echo $pr_row["category"];?></td>
+                      <td>
+                        <?php
+                        $cat_ID=$pr_row["category"];
+                        $query=mysql_query("Select * from category where ID='$cat_ID'");
+                        $row=mysql_fetch_array($query);
+                        echo $row["category"];
+                        ?>
+                      </td>
                       <td>
                         <a class="btn btn-default" href="products-detail.php?ID=<?php echo $pr_row["ID"];?>"><i class="fa fa-pencil"></i></a>
                         <a class="btn btn-default" href="javascript:confirmuserDelete('products-in.php?islem=Del&ID=<?php echo $pr_row["ID"];?>')"><i class="fa fa-trash-o"></i></a>

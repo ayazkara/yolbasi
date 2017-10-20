@@ -26,7 +26,7 @@
               $cat=mysql_query("Select * from category");
               while ($cat_row=mysql_fetch_array($cat)){
             ?>
-							<option value="<?php echo $cat_row["category"];?>"><?php echo $cat_row["category"];?></option>
+							<option value="<?php echo $cat_row["ID"];?>"><?php echo $cat_row["category"];?></option>
 						<?php } ?>
 					</select>
         </div>

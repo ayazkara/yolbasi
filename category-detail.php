@@ -1,6 +1,8 @@
+<base href="http://localhost/yolbasi/">
 <?php
   include("header.php");
-  $ID=$_GET["ID"];
+  $ID=explode("/",$_SERVER['REQUEST_URI']);
+  $ID=$ID[3];
   include("db.php");
   $pr=mysql_query("Select * from products where ID='$ID'");
   $pr_row=mysql_fetch_array($pr);
@@ -37,7 +39,7 @@
                           $cat=mysql_query("Select * from category");
                           while ($cat_row=mysql_fetch_array($cat)){
                         ?>
-                        <li><a href="category.php?category=<?php echo $cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
+                      <li><a href="category/<?php echo seo($cat_row["ID"]).'/'.$cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
                       <?php }?>
                       </ul>
 
@@ -117,10 +119,10 @@
               <div class="oc-item">
                 <div class="product iproduct clearfix">
                   <div class="product-image">
-                    <a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><img src="images/shop/<?php if ($img_row1[0]>0){ echo $img_row1["images"];}else{ echo $rs_row["images"];}?>" style="width=175px; height:175px;"></a>
+                    <a href="category-detail/<?php echo seo($rs_row["ID"]).'/'.seo($rs_row["title"]);?>"><img src="images/shop/<?php if ($img_row1[0]>0){ echo $img_row1["images"];}else{ echo $rs_row["images"];}?>" style="width=175px; height:175px;"></a>
                   </div>
                   <div class="product-desc center">
-                    <div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $rs_row["ID"];?>"><?php echo $rs_row["title"]; ?></a></h3></div>
+                    <div class="product-title"><h3><a href="category-detail/<?php echo seo($rs_row["ID"]).'/'.seo($rs_row["title"]);?>"><?php echo $rs_row["title"]; ?></a></h3></div>
                   </div>
                 </div>
               </div>

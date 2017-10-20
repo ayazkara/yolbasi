@@ -1,0 +1,12 @@
+
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /
+RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^contact$ contact.php [NC,L]
+RewriteRule ^about$ about.php [NC,L]
+RewriteRule ^index$ index.php [NC,L]
+RewriteRule ^category-detail/(.*)/(.*)$ category-detail.php?ID=$1&sef=$2 [L]
+RewriteRule ^category/(.*)/(.*)$ category.php?category=$1&sef=$2 [L]

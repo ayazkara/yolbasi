@@ -1,16 +1,21 @@
+<base href="http://localhost/yolbasi/">
 <?php
  include("header.php");
- $category=$_GET["category"];
+ $category=explode("/",$_SERVER['REQUEST_URI']);
+ $category = $category[3];
+ include("ybadm/db.php");
+ $query=mysql_query("Select * from category where ID='$category'");
+ $row=mysql_fetch_array($query);
 ?>
 <!-- Page Title
   ============================================= -->
   <section id="page-title">
 
     <div class="container clearfix">
-      <h1><?php echo $category;?></h1>
+      <h1><?php echo $row["category"];?></h1>
       <ol class="breadcrumb">
         <li><a href="index.php">Anasayfa</a></li>
-        <li class="active"><?php echo $category;?></li>
+        <li class="active"><?php echo $row["category"];?></li>
       </ol>
     </div>
 
@@ -41,7 +46,7 @@
                     $cat=mysql_query("Select * from category");
                     while ($cat_row=mysql_fetch_array($cat)){
                   ?>
-                  <li><a href="category.php?category=<?php echo $cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
+                  <li><a href="category/<?php echo seo($cat_row["ID"]).'/'.$cat_row["category"];?>"><div><?php echo $cat_row["category"];?></div></a></li>
                 <?php }?>
                 </ul>
 
@@ -65,10 +70,11 @@
           ?>
               <div class="product clearfix">
 								<div class="product-image">
-									<a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><img src="images/shop/<?php if ($img_row[0]>0){ echo $img_row["images"];}else{ echo $pr_row["images"];}?>" style="width=250px; height:250px;"></a>
+									<a href="category-detail/<?php echo seo($pr_row["ID"]).'/'.seo($pr_row["title"]);?>"><img src="images/shop/<?php if ($img_row[0]>0){ echo $img_row["images"];}else{ echo $pr_row["images"];}?>" style="width=250px; height:250px;"></a>
 								</div>
+
 								<div class="product-desc center">
-									<div class="product-title"><h3><a href="category-detail.php?ID=<?php echo $pr_row["ID"];?>"><?php echo $pr_row["title"]; ?></a></h3></div>
+									<div class="product-title"><h3><a href="category-detail/<?php echo seo($pr_row["ID"]).'/'.seo($pr_row["title"]);?>"><?php echo $pr_row["title"]; ?></a></h3></div>
 								</div>
 							</div>
           <?php } ?>
