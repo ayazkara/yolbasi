@@ -647,7 +647,7 @@ body.stretched .container-fullwidth {
 .fslider .slide > img,
 .fslider .slide > a > img {
 	position: relative;
-	display: block;
+	
 	width: 100%;
 	height: auto;
 	overflow: hidden;
@@ -5862,7 +5862,7 @@ p.wp-caption-text {
 .product-image > a,
 .product-image .slide a,
 .product-image img {
-	display: block;
+
 	width: 100%;
 	height: 100%;
 }
